@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratia Skills Framework</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-brand">
+                <span class="brand-icon">G</span>
+                <span class="brand-text">Gratia Skills Framework</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-tabs" id="navTabs">
+                <button class="nav-tab active" data-view="overview">Overview</button>
+                <button class="nav-tab" data-view="levels">Analyst Levels</button>
+                <button class="nav-tab" data-view="specializations">Specializations</button>
+                <button class="nav-tab" data-view="assessment">Assessment</button>
+                <button class="nav-tab" data-view="staffing">Staffing</button>
+            </div>
+        </nav>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <section id="overview-view" class="view active">
+                <div class="overview-hero">
+                    <h1>Gratia Skills Framework</h1>
+                    <p class="hero-subtitle">A system for credentialing analysts, matching them to projects, and maintaining quality at scale.</p>
+                </div>
+
+                <!-- The Problem -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">The Challenge</span>
+                    <h2>Why We Need This</h2>
+
+                    <div class="problem-grid">
+                        <div class="problem-card">
+                            <div class="problem-icon">🎯</div>
+                            <h3>Matching Problem</h3>
+                            <p>How do we know which analyst to assign to a DCF valuation vs. a pitch deck vs. a market sizing exercise?</p>
+                            <span class="problem-pain">Without a system: gut feel, availability-based staffing, mismatches</span>
+                        </div>
+                        <div class="problem-card">
+                            <div class="problem-icon">📊</div>
+                            <h3>Quality Problem</h3>
+                            <p>How do we catch quality issues before they reach clients? How do we know who's improving vs. declining?</p>
+                            <span class="problem-pain">Without a system: reactive firefighting, no early warning</span>
+                        </div>
+                        <div class="problem-card">
+                            <div class="problem-icon">📈</div>
+                            <h3>Development Problem</h3>
+                            <p>How do analysts know what to work on? How do we identify who's ready for more complex work?</p>
+                            <span class="problem-pain">Without a system: arbitrary promotion, unclear expectations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Solution -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">The Solution</span>
+                    <h2>Three Interlocking Systems</h2>
+
+                    <div class="solution-grid">
+                        <div class="solution-card">
+                            <div class="solution-number">1</div>
+                            <div class="solution-content">
+                                <h3>Analyst Levels (A1-A4)</h3>
+                                <p>Overall capability tier. Determines what complexity of work someone can handle, rate bands, and supervision requirements.</p>
+                                <div class="solution-insight">
+                                    <span class="insight-label">Key insight:</span>
+                                    Levels are based on <em>demonstrated performance</em>, not tenure or credentials. An analyst with 6 months can be A3 if the work proves it.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-card">
+                            <div class="solution-number">2</div>
+                            <div class="solution-content">
+                                <h3>Specializations (9 service areas)</h3>
+                                <p>Domain expertise depth. An A3 analyst might be Expert in Financial Models but only Familiar with Pitch Decks.</p>
+                                <div class="solution-insight">
+                                    <span class="insight-label">Key insight:</span>
+                                    Specialization score weights quality and complexity, not just hours. 200 hours of advanced DCF work beats 500 hours of basic budgets.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="solution-card">
+                            <div class="solution-number">3</div>
+                            <div class="solution-content">
+                                <h3>AQS (Quality Score)</h3>
+                                <p>Rolling 90-day performance metric. Combines AI-assessed work quality with client satisfaction and process compliance.</p>
+                                <div class="solution-insight">
+                                    <span class="insight-label">Key insight:</span>
+                                    First-submission scores count — not post-feedback revisions. This measures true independent capability.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analyst Levels Detail -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">Component 1</span>
+                    <div class="section-header-row">
+                        <h2>Analyst Levels</h2>
+                        <a href="#" class="section-link" data-nav="levels">Full details →</a>
+                    </div>
+
+                    <div class="levels-summary-grid">
+                        <div class="level-summary-card level-a1">
+                            <div class="level-badge">A1</div>
+                            <div class="level-info">
+                                <h3>Apprentice</h3>
+                                <p>Requires supervision. Well-defined tasks only.</p>
+                            </div>
+                            <div class="level-aqs">AQS 70+</div>
+                        </div>
+                        <div class="level-summary-card level-a2">
+                            <div class="level-badge">A2</div>
+                            <div class="level-info">
+                                <h3>Associate</h3>
+                                <p>Works independently. Standard deliverables.</p>
+                            </div>
+                            <div class="level-aqs">AQS 80+</div>
+                        </div>
+                        <div class="level-summary-card level-a3">
+                            <div class="level-badge">A3</div>
+                            <div class="level-info">
+                                <h3>Business Analyst</h3>
+                                <p>Complex work. Direct client interface.</p>
+                            </div>
+                            <div class="level-aqs">AQS 90+</div>
+                        </div>
+                        <div class="level-summary-card level-a4">
+                            <div class="level-badge">A4</div>
+                            <div class="level-info">
+                                <h3>Senior</h3>
+                                <p>Expert. Strategic engagements. Mentors others.</p>
+                            </div>
+                            <div class="level-aqs">AQS 95+</div>
+                        </div>
+                    </div>
+
+                    <div class="design-decision">
+                        <h4>Design Decision: Soft Restriction on Decline</h4>
+                        <p>If an A3's AQS drops below 90 for a sustained period, they don't get demoted immediately. Instead:</p>
+                        <ul>
+                            <li>They keep their A3 title</li>
+                            <li>They're flagged internally (not visible to clients)</li>
+                            <li>They're not matched to A3-level work until AQS recovers</li>
+                        </ul>
+                        <span class="decision-rationale">Why: Demotion is demoralizing and often temporary. Soft restriction gives time to recover while protecting project quality.</span>
+                    </div>
+                </div>
+
+                <!-- Specializations Summary -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">Component 2</span>
+                    <div class="section-header-row">
+                        <h2>Specializations</h2>
+                        <a href="#" class="section-link" data-nav="specializations">Full details →</a>
+                    </div>
+
+                    <div class="specs-summary-grid">
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">📊</span>
+                            <span class="spec-name">Financial Models</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">📑</span>
+                            <span class="spec-name">Pitch Decks</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">🔍</span>
+                            <span class="spec-name">Market Research</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">📈</span>
+                            <span class="spec-name">Dashboards</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">⚙️</span>
+                            <span class="spec-name">Process Optimization</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">📋</span>
+                            <span class="spec-name">Project Management</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">📝</span>
+                            <span class="spec-name">Proposals</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">🚀</span>
+                            <span class="spec-name">RevOps & GTM</span>
+                        </div>
+                        <div class="spec-summary-card">
+                            <span class="spec-icon">🎯</span>
+                            <span class="spec-name">Business Strategy</span>
+                        </div>
+                    </div>
+
+                    <div class="spec-score-explainer">
+                        <h4>Specialization Score (SS)</h4>
+                        <div class="ss-formula">
+                            <span class="ss-part"><strong>40%</strong> Hours</span>
+                            <span class="ss-plus">+</span>
+                            <span class="ss-part"><strong>40%</strong> Quality</span>
+                            <span class="ss-plus">+</span>
+                            <span class="ss-part"><strong>20%</strong> Complexity</span>
+                        </div>
+                    </div>
+
+                    <div class="spec-tiers">
+                        <div class="spec-tier-card tier-familiar">
+                            <span class="tier-score">SS 50-69</span>
+                            <span class="tier-name">Familiar</span>
+                            <span class="tier-desc">Support roles only</span>
+                        </div>
+                        <div class="spec-tier-card tier-proficient">
+                            <span class="tier-score">SS 70-84</span>
+                            <span class="tier-name">Proficient</span>
+                            <span class="tier-desc">Independent work</span>
+                        </div>
+                        <div class="spec-tier-card tier-expert">
+                            <span class="tier-score">SS 85+</span>
+                            <span class="tier-name">Expert</span>
+                            <span class="tier-desc">Lead complex projects</span>
+                        </div>
+                    </div>
+
+                    <div class="design-decisions-group">
+                        <div class="design-decision">
+                            <h4>Design Decision: Task-Level Tagging</h4>
+                            <p>Projects often span multiple specializations. A "GTM launch" might include pitch decks, market research, and RevOps setup.</p>
+                            <p><strong>Solution:</strong> Hours are logged at the <em>task level</em>, not project level. Each task is tagged to one specialization.</p>
+                            <span class="decision-rationale">Why: This gives accurate credit for cross-domain projects without complex hour-splitting.</span>
+                        </div>
+
+                        <div class="design-decision">
+                            <h4>Design Decision: Complexity Assignment</h4>
+                            <p>How do we decide if a financial model is "basic" vs "advanced"?</p>
+                            <p><strong>Solution:</strong> Hybrid approach — deliverable types have default complexity levels (DCF = advanced, budget template = basic), but PM can override based on actual scope.</p>
+                            <span class="decision-rationale">Why: Taxonomy provides consistency; PM override handles edge cases.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AQS Deep Dive -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">Component 3</span>
+                    <div class="section-header-row">
+                        <h2>Quality Score (AQS)</h2>
+                        <a href="#" class="section-link" data-nav="assessment">Calculator →</a>
+                    </div>
+
+                    <div class="aqs-breakdown-visual">
+                        <div class="aqs-component">
+                            <span class="aqs-weight">35%</span>
+                            <div class="aqs-detail">
+                                <strong>Work Quality</strong>
+                                <span>First-submission AI scores + revision rate</span>
+                                <span class="source-tag">AI-assessed</span>
+                            </div>
+                        </div>
+                        <div class="aqs-component">
+                            <span class="aqs-weight">20%</span>
+                            <div class="aqs-detail">
+                                <strong>Delivery</strong>
+                                <span>On-time rate</span>
+                                <span class="source-tag">PM input</span>
+                            </div>
+                        </div>
+                        <div class="aqs-component">
+                            <span class="aqs-weight">25%</span>
+                            <div class="aqs-detail">
+                                <strong>Satisfaction</strong>
+                                <span>Client + PM + peer ratings</span>
+                                <span class="source-tag">Human input</span>
+                            </div>
+                        </div>
+                        <div class="aqs-component">
+                            <span class="aqs-weight">20%</span>
+                            <div class="aqs-detail">
+                                <strong>Gratia Standards</strong>
+                                <span>Time logging, updates, process</span>
+                                <span class="source-tag">System data</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-decision">
+                        <h4>Design Decision: What Counts as a Revision?</h4>
+                        <p>AI feedback often includes minor polish suggestions (tightening copy, formatting tweaks). If we count these as "revisions," everyone looks bad.</p>
+                        <p><strong>Solution:</strong> AI classifies its own feedback as <em>substantive</em> (missing requirements, errors, methodology issues) vs. <em>polish</em> (formatting, word choice). Only substantive issues count toward revision rate.</p>
+                        <span class="decision-rationale">Why: Prevents AQS deflation from AI perfectionism. Measures real quality gaps, not cosmetic preferences.</span>
+                    </div>
+
+                    <div class="design-decision">
+                        <h4>Design Decision: First-Submission Scoring</h4>
+                        <p>We score what the analyst submits <em>before</em> AI feedback, not the polished final version.</p>
+                        <span class="decision-rationale">Why: Measures true independent capability. Prevents gaming by relying on AI to catch everything.</span>
+                    </div>
+                </div>
+
+                <!-- How It Works Together -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">In Practice</span>
+                    <h2>How It Works Together</h2>
+
+                    <div class="practice-example">
+                        <h4>Example: Staffing a DCF Valuation Project</h4>
+                        <div class="practice-flow">
+                            <div class="practice-step">
+                                <span class="practice-num">1</span>
+                                <div class="practice-content">
+                                    <strong>Requirements</strong>
+                                    <p>Client needs a DCF model for Series B fundraise. Complex work, client-facing.</p>
+                                </div>
+                            </div>
+                            <div class="practice-step">
+                                <span class="practice-num">2</span>
+                                <div class="practice-content">
+                                    <strong>Filter by Level</strong>
+                                    <p>Complex + client-facing = A3 minimum</p>
+                                </div>
+                            </div>
+                            <div class="practice-step">
+                                <span class="practice-num">3</span>
+                                <div class="practice-content">
+                                    <strong>Filter by Specialization</strong>
+                                    <p>Financial Models at Expert tier (SS 85+)</p>
+                                </div>
+                            </div>
+                            <div class="practice-step">
+                                <span class="practice-num">4</span>
+                                <div class="practice-content">
+                                    <strong>Consider Fit</strong>
+                                    <p>Client is a fast-moving startup → check psychometric fit</p>
+                                </div>
+                            </div>
+                            <div class="practice-step">
+                                <span class="practice-num">5</span>
+                                <div class="practice-content">
+                                    <strong>Match</strong>
+                                    <p>Sarah Mitchell: A3, Financial Expert (SS 91), Good startup fit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="career-path-compact">
+                        <h4>Typical Progression</h4>
+                        <div class="progression-visual">
+                            <div class="prog-stage">
+                                <span class="prog-level">A1</span>
+                                <span class="prog-specs">1-2 Familiar</span>
+                                <span class="prog-work">Basic deliverables, supervised</span>
+                            </div>
+                            <div class="prog-arrow">→</div>
+                            <div class="prog-stage">
+                                <span class="prog-level">A2</span>
+                                <span class="prog-specs">1+ Proficient</span>
+                                <span class="prog-work">Independent, intermediate</span>
+                            </div>
+                            <div class="prog-arrow">→</div>
+                            <div class="prog-stage">
+                                <span class="prog-level">A3</span>
+                                <span class="prog-specs">1+ Expert, 2+ Proficient</span>
+                                <span class="prog-work">Complex, client-facing</span>
+                            </div>
+                            <div class="prog-arrow">→</div>
+                            <div class="prog-stage">
+                                <span class="prog-level">A4</span>
+                                <span class="prog-specs">2+ Expert, 3+ Proficient</span>
+                                <span class="prog-work">Strategic, mentoring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upskilling -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">Development</span>
+                    <h2>Upskilling Resources</h2>
+
+                    <p class="section-intro">When pattern tracking reveals weaknesses, analysts get targeted development paths. Each specialization has associated certifications and training.</p>
+
+                    <div class="upskilling-grid">
+                        <div class="upskill-category">
+                            <h4>Financial Models</h4>
+                            <ul>
+                                <li>Wall Street Prep courses</li>
+                                <li>CFA programs</li>
+                                <li>Advanced Excel/VBA training</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>Pitch Decks</h4>
+                            <ul>
+                                <li>Design thinking workshops</li>
+                                <li>Strategic framework training</li>
+                                <li>Advanced PowerPoint/Keynote</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>Market Research</h4>
+                            <ul>
+                                <li>Market Research Society programs</li>
+                                <li>Statistical analysis training</li>
+                                <li>Google Analytics certification</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>Dashboards</h4>
+                            <ul>
+                                <li>Tableau Desktop Certified</li>
+                                <li>Microsoft Power BI Certified</li>
+                                <li>SQL & Python courses</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>Process Optimization</h4>
+                            <ul>
+                                <li>Lean Six Sigma (Green/Black Belt)</li>
+                                <li>Automation platform training</li>
+                                <li>Process improvement methodologies</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>Project Management</h4>
+                            <ul>
+                                <li>PMP certification</li>
+                                <li>Certified Scrum Master (CSM)</li>
+                                <li>Agile methodologies</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>Proposals</h4>
+                            <ul>
+                                <li>APMP certification</li>
+                                <li>Business case methodology</li>
+                                <li>Financial analysis programs</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>RevOps & GTM</h4>
+                            <ul>
+                                <li>Salesforce Admin/Consultant</li>
+                                <li>HubSpot certifications</li>
+                                <li>Sales methodology training</li>
+                            </ul>
+                        </div>
+                        <div class="upskill-category">
+                            <h4>Business Strategy</h4>
+                            <ul>
+                                <li>Executive strategy programs</li>
+                                <li>MBA-level strategy courses</li>
+                                <li>Certified Management Consultant</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="upskill-note">
+                        <strong>AI-Enhanced Learning:</strong> Each specialization includes AI prompting workshops where analysts learn service-specific AI applications — turning AI from a general productivity tool into a specialized consulting accelerator.
+                    </div>
+                </div>
+
+                <!-- Psychometrics -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">Additional Signal</span>
+                    <h2>Work Style Fit (Psychometrics)</h2>
+
+                    <div class="psycho-intro">
+                        <p>Beyond skills, we capture work style preferences via Principles Us assessment. This helps with client-analyst chemistry and team composition.</p>
+                    </div>
+
+                    <div class="psycho-compact">
+                        <div class="psycho-dims-compact">
+                            <div class="dim-compact"><strong>Work Style:</strong> Methodical ↔ Adaptive</div>
+                            <div class="dim-compact"><strong>Communication:</strong> Direct ↔ Diplomatic</div>
+                            <div class="dim-compact"><strong>Decision Making:</strong> Analytical ↔ Intuitive</div>
+                            <div class="dim-compact"><strong>Collaboration:</strong> Independent ↔ Collaborative</div>
+                            <div class="dim-compact"><strong>Risk Tolerance:</strong> Conservative ↔ Bold</div>
+                            <div class="dim-compact"><strong>Feedback:</strong> Candid ↔ Supportive</div>
+                        </div>
+
+                        <div class="psycho-profiles">
+                            <h4>Client Profile Templates</h4>
+                            <div class="profile-tags">
+                                <span class="profile-tag">Startup / Fast-paced</span>
+                                <span class="profile-tag">Enterprise / Process-driven</span>
+                                <span class="profile-tag">Consulting firm</span>
+                                <span class="profile-tag">Creative / Agency</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-decision">
+                        <h4>Design Decision: Optional, Not Required</h4>
+                        <p>Psychometrics are surfaced in staffing but never used to exclude analysts.</p>
+                        <ul>
+                            <li>An Expert with "poor fit" beats a Familiar with "perfect fit"</li>
+                            <li>Shown as additional context, not a filter</li>
+                            <li>Helps PMs manage the relationship, not gatekeep it</li>
+                        </ul>
+                        <span class="decision-rationale">Why: Skills predict success better than personality. But knowing someone is "direct + independent" helps set expectations.</span>
+                    </div>
+                </div>
+
+                <!-- Quality Workflow -->
+                <div class="overview-section deck-slide">
+                    <span class="slide-label">Quality Assurance</span>
+                    <h2>The Review Workflow</h2>
+
+                    <div class="workflow-compact">
+                        <div class="workflow-step-compact">
+                            <span class="wf-num">1</span>
+                            <strong>Submit</strong>
+                            <span>Analyst submits first draft</span>
+                        </div>
+                        <div class="workflow-arrow-compact">→</div>
+                        <div class="workflow-step-compact highlight">
+                            <span class="wf-num">2</span>
+                            <strong>AI Scores</strong>
+                            <span>8 dimensions, first-submission recorded</span>
+                        </div>
+                        <div class="workflow-arrow-compact">→</div>
+                        <div class="workflow-step-compact">
+                            <span class="wf-num">3</span>
+                            <strong>Feedback</strong>
+                            <span>AI provides improvement notes</span>
+                        </div>
+                        <div class="workflow-arrow-compact">→</div>
+                        <div class="workflow-step-compact">
+                            <span class="wf-num">4</span>
+                            <strong>Revise</strong>
+                            <span>If substantive issues (not just polish)</span>
+                        </div>
+                        <div class="workflow-arrow-compact">→</div>
+                        <div class="workflow-step-compact">
+                            <span class="wf-num">5</span>
+                            <strong>Deliver</strong>
+                            <span>When avg ≥ 3.5</span>
+                        </div>
+                    </div>
+
+                    <div class="dimensions-summary">
+                        <h4>Scoring Dimensions</h4>
+                        <div class="dims-two-col">
+                            <div class="dims-col">
+                                <h5>Universal (all deliverables)</h5>
+                                <ul>
+                                    <li>Completeness</li>
+                                    <li>Accuracy</li>
+                                    <li>Presentation</li>
+                                    <li>Timeliness</li>
+                                </ul>
+                            </div>
+                            <div class="dims-col">
+                                <h5>Specialization-specific</h5>
+                                <ul>
+                                    <li>4 additional dimensions per specialization</li>
+                                    <li>e.g., Formula Integrity for Financial Models</li>
+                                    <li>e.g., Narrative Flow for Pitch Decks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="section-link" data-nav="assessment">See all dimensions →</a>
+                </div>
+
+                <!-- Summary -->
+                <div class="overview-section deck-slide final-slide">
+                    <span class="slide-label">Summary</span>
+                    <h2>The Framework at a Glance</h2>
+
+                    <div class="summary-table">
+                        <div class="summary-row header">
+                            <span>Component</span>
+                            <span>Purpose</span>
+                            <span>Key Metric</span>
+                        </div>
+                        <div class="summary-row">
+                            <span><strong>Analyst Levels</strong></span>
+                            <span>Overall capability tier</span>
+                            <span>A1 → A2 → A3 → A4</span>
+                        </div>
+                        <div class="summary-row">
+                            <span><strong>Specializations</strong></span>
+                            <span>Domain expertise depth</span>
+                            <span>SS: Familiar → Proficient → Expert</span>
+                        </div>
+                        <div class="summary-row">
+                            <span><strong>AQS</strong></span>
+                            <span>Ongoing performance</span>
+                            <span>0-100 (rolling 90-day)</span>
+                        </div>
+                        <div class="summary-row">
+                            <span><strong>Psychometrics</strong></span>
+                            <span>Work style fit</span>
+                            <span>6 dimensions (optional signal)</span>
+                        </div>
+                    </div>
+
+                    <div class="key-principles">
+                        <h4>Key Principles</h4>
+                        <div class="principles-grid">
+                            <div class="principle">
+                                <strong>Performance over tenure</strong>
+                                <span>You level up by proving it, not by waiting</span>
+                            </div>
+                            <div class="principle">
+                                <strong>Quality over quantity</strong>
+                                <span>200 hours of complex work beats 500 hours of basics</span>
+                            </div>
+                            <div class="principle">
+                                <strong>First-submission counts</strong>
+                                <span>We measure what you deliver before AI helps</span>
+                            </div>
+                            <div class="principle">
+                                <strong>Skills trump style</strong>
+                                <span>Psychometrics inform, never gatekeep</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANALYST LEVELS VIEW -->
+            <section id="levels-view" class="view">
+                <div class="view-header">
+                    <h1>Analyst Levels</h1>
+                    <p>Four credential tiers that reflect your demonstrated capability. Your level determines project eligibility, complexity, and rates.</p>
+                </div>
+
+                <div class="levels-detailed-grid">
+                    <div class="level-detailed-card level-a1">
+                        <div class="level-card-header">
+                            <div class="level-badge-large">A1</div>
+                            <div>
+                                <h2>Apprentice Business Analyst</h2>
+                                <span class="level-subtitle">Building foundations</span>
+                            </div>
+                        </div>
+                        <div class="level-card-body">
+                            <div class="level-description">
+                                <h4>What you do</h4>
+                                <ul>
+                                    <li>Execute well-defined tasks with clear guidance</li>
+                                    <li>Learn Gratia methodologies and standards</li>
+                                    <li>Work under senior analyst supervision</li>
+                                    <li>Build core tool proficiency</li>
+                                </ul>
+                            </div>
+                            <div class="level-requirements">
+                                <h4>Requirements</h4>
+                                <div class="req-item"><span class="req-label">AQS</span><span class="req-value">70+</span></div>
+                                <div class="req-item"><span class="req-label">Specializations</span><span class="req-value">Building first Familiar</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="level-detailed-card level-a2">
+                        <div class="level-card-header">
+                            <div class="level-badge-large">A2</div>
+                            <div>
+                                <h2>Associate Business Analyst</h2>
+                                <span class="level-subtitle">Independent contributor</span>
+                            </div>
+                        </div>
+                        <div class="level-card-body">
+                            <div class="level-description">
+                                <h4>What you do</h4>
+                                <ul>
+                                    <li>Work independently on standard deliverables</li>
+                                    <li>Deliver reliable quality and accuracy</li>
+                                    <li>Communicate directly with clients</li>
+                                    <li>Seek guidance only for complex situations</li>
+                                </ul>
+                            </div>
+                            <div class="level-requirements">
+                                <h4>Requirements</h4>
+                                <div class="req-item"><span class="req-label">AQS</span><span class="req-value">80+</span></div>
+                                <div class="req-item"><span class="req-label">Specializations</span><span class="req-value">1+ Proficient</span></div>
+                            </div>
+                        </div>
+                        <div class="level-promotion">
+                            <h4>To reach A2 from A1</h4>
+                            <ul>
+                                <li>AQS consistently 80+</li>
+                                <li>At least 1 specialization at Proficient (SS 70+)</li>
+                                <li>3+ deliverables with "Passed" or better review</li>
+                                <li>4+ avg client feedback rating</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="level-detailed-card level-a3">
+                        <div class="level-card-header">
+                            <div class="level-badge-large">A3</div>
+                            <div>
+                                <h2>Business Analyst</h2>
+                                <span class="level-subtitle">Strategic problem-solver</span>
+                            </div>
+                        </div>
+                        <div class="level-card-body">
+                            <div class="level-description">
+                                <h4>What you do</h4>
+                                <ul>
+                                    <li>Design approaches for complex problems</li>
+                                    <li>Exercise sound business judgment</li>
+                                    <li>Deliver outcomes, not just outputs</li>
+                                    <li>Mentor junior analysts</li>
+                                </ul>
+                            </div>
+                            <div class="level-requirements">
+                                <h4>Requirements</h4>
+                                <div class="req-item"><span class="req-label">AQS</span><span class="req-value">90+</span></div>
+                                <div class="req-item"><span class="req-label">Specializations</span><span class="req-value">1+ Expert, 2+ Proficient</span></div>
+                            </div>
+                        </div>
+                        <div class="level-promotion">
+                            <h4>To reach A3 from A2</h4>
+                            <ul>
+                                <li>AQS consistently 90+</li>
+                                <li>At least 1 specialization at Expert (SS 85+)</li>
+                                <li>At least 2 specializations at Proficient or above</li>
+                                <li>5+ deliverables with "Exceeded" review</li>
+                                <li>4.5+ avg client feedback rating</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="level-detailed-card level-a4">
+                        <div class="level-card-header">
+                            <div class="level-badge-large">A4</div>
+                            <div>
+                                <h2>Senior Business Analyst</h2>
+                                <span class="level-subtitle">Expert & trusted advisor</span>
+                            </div>
+                        </div>
+                        <div class="level-card-body">
+                            <div class="level-description">
+                                <h4>What you do</h4>
+                                <ul>
+                                    <li>Recognized domain expert</li>
+                                    <li>Handle the most challenging problems</li>
+                                    <li>Create knowledge and train others</li>
+                                    <li>Set quality standards for the team</li>
+                                </ul>
+                            </div>
+                            <div class="level-requirements">
+                                <h4>Requirements</h4>
+                                <div class="req-item"><span class="req-label">AQS</span><span class="req-value">95+</span></div>
+                                <div class="req-item"><span class="req-label">Specializations</span><span class="req-value">2+ Expert, 3+ Proficient</span></div>
+                            </div>
+                        </div>
+                        <div class="level-promotion">
+                            <h4>To reach A4 from A3</h4>
+                            <ul>
+                                <li>AQS consistently 95+</li>
+                                <li>At least 2 specializations at Expert (SS 85+)</li>
+                                <li>At least 3 specializations at Proficient or above</li>
+                                <li>Reference-quality work consistently</li>
+                                <li>Contributes to team standards and training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Competencies -->
+                <div class="competencies-section">
+                    <h2>Core Competencies</h2>
+                    <p>Five dimensions assessed at every level. Your overall capability across these determines your analyst level.</p>
+
+                    <div class="competencies-grid" id="competenciesGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPECIALIZATIONS VIEW -->
+            <section id="specializations-view" class="view">
+                <div class="view-header">
+                    <h1>Specializations</h1>
+                    <p>Nine service areas where you build expertise. Hours logged determine your eligibility for projects in each area.</p>
+                </div>
+
+                <div class="spec-score-legend">
+                    <div class="legend-intro">
+                        <p><strong>Specialization Score (SS)</strong> = 40% Hours + 40% Quality + 20% Complexity</p>
+                    </div>
+                    <div class="ss-tiers-legend">
+                        <div class="ss-tier">
+                            <span class="ss-badge tier-familiar">SS 50-69</span>
+                            <div class="ss-tier-info">
+                                <strong>Familiar</strong>
+                                <span>Can support on basic work, needs oversight</span>
+                            </div>
+                        </div>
+                        <div class="ss-tier">
+                            <span class="ss-badge tier-proficient">SS 70-84</span>
+                            <div class="ss-tier-info">
+                                <strong>Proficient</strong>
+                                <span>Works independently on intermediate deliverables</span>
+                            </div>
+                        </div>
+                        <div class="ss-tier">
+                            <span class="ss-badge tier-expert">SS 85+</span>
+                            <div class="ss-tier-info">
+                                <strong>Expert</strong>
+                                <span>Leads complex projects, advanced techniques</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specializations-detailed-grid" id="specializationsGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- ASSESSMENT VIEW -->
+            <section id="assessment-view" class="view">
+                <div class="view-header">
+                    <h1>Assessment</h1>
+                    <p>Calculate your AQS score and simulate performance scenarios.</p>
+                </div>
+
+                <div class="assessment-tabs">
+                    <button class="assessment-tab active" data-assess="credentialing">Credentialing</button>
+                    <button class="assessment-tab" data-assess="aqs">AQS Calculator</button>
+                    <button class="assessment-tab" data-assess="quality">Quality Review</button>
+                    <button class="assessment-tab" data-assess="simulator">Simulator</button>
+                </div>
+
+                <!-- Credentialing Panel -->
+                <div id="credentialing-panel" class="assessment-panel active">
+                    <div class="credentialing-intro">
+                        <h3>How Credentialing Works</h3>
+                        <p>Your level and specialization credentials evolve as we gather more signal. Interview assessments are provisional — real project work is the gold standard.</p>
+                    </div>
+
+                    <!-- Verification Levels -->
+                    <div class="verification-levels">
+                        <h4>Verification Levels</h4>
+                        <div class="verification-grid">
+                            <div class="verification-card provisional">
+                                <div class="verification-badge">P</div>
+                                <div class="verification-info">
+                                    <h5>Provisional</h5>
+                                    <p>Interview-based assessment. Subject to adjustment after 50 hours of real work.</p>
+                                    <span class="verification-source">Source: Interview process</span>
+                                </div>
+                            </div>
+                            <div class="verification-card knowledge">
+                                <div class="verification-badge">K</div>
+                                <div class="verification-info">
+                                    <h5>Knowledge Verified</h5>
+                                    <p>Passed knowledge tests (MCQs). Knows the theory but execution unproven.</p>
+                                    <span class="verification-source">Source: Self-assessment</span>
+                                </div>
+                            </div>
+                            <div class="verification-card portfolio">
+                                <div class="verification-badge">F</div>
+                                <div class="verification-info">
+                                    <h5>Portfolio Graded</h5>
+                                    <p>Submitted deliverable reviewed by AI. Shows capability but context unverified.</p>
+                                    <span class="verification-source">Source: Self-assessment</span>
+                                </div>
+                            </div>
+                            <div class="verification-card simulation">
+                                <div class="verification-badge">S</div>
+                                <div class="verification-info">
+                                    <h5>Simulation Completed</h5>
+                                    <p>Completed AI-driven project simulation. Realistic conditions, controlled environment.</p>
+                                    <span class="verification-source">Source: Self-assessment</span>
+                                </div>
+                            </div>
+                            <div class="verification-card verified">
+                                <div class="verification-badge">V</div>
+                                <div class="verification-info">
+                                    <h5>Project Verified</h5>
+                                    <p>Proven through actual client work. The gold standard for credentialing.</p>
+                                    <span class="verification-source">Source: Real projects</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Self-Assessment Pathways -->
+                    <div class="self-assessment-section">
+                        <h4>Self-Assessment Pathways</h4>
+                        <p class="section-desc">Build your credentials before getting matched to real projects. These help us (and clients) trust your capabilities.</p>
+
+                        <div class="pathway-cards">
+                            <div class="pathway-card">
+                                <div class="pathway-icon">📝</div>
+                                <div class="pathway-content">
+                                    <h5>Knowledge Tests</h5>
+                                    <p>Multiple-choice questions testing theoretical knowledge in each specialization.</p>
+                                    <ul class="pathway-details">
+                                        <li>20-30 questions per specialization</li>
+                                        <li>Tests concepts, best practices, terminology</li>
+                                        <li>Pass threshold: 80%</li>
+                                        <li>Can retake after 7 days</li>
+                                    </ul>
+                                    <div class="pathway-outcome">
+                                        <span class="outcome-label">Outcome:</span>
+                                        <span class="verification-tag knowledge">Knowledge Verified</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pathway-card">
+                                <div class="pathway-icon">📁</div>
+                                <div class="pathway-content">
+                                    <h5>Portfolio Submission</h5>
+                                    <p>Upload a deliverable you've created (past work, practice, personal projects).</p>
+                                    <ul class="pathway-details">
+                                        <li>AI grades on relevant dimensions</li>
+                                        <li>Detailed feedback provided</li>
+                                        <li>Context may be incomplete (we note this)</li>
+                                        <li>Can submit multiple samples</li>
+                                    </ul>
+                                    <div class="pathway-outcome">
+                                        <span class="outcome-label">Outcome:</span>
+                                        <span class="verification-tag portfolio">Portfolio Graded</span>
+                                        <span class="outcome-note">+ AI score on dimensions</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pathway-card featured">
+                                <div class="pathway-icon">🎮</div>
+                                <div class="pathway-content">
+                                    <h5>Project Simulation</h5>
+                                    <p>Complete a realistic project where AI acts as the client and project manager.</p>
+                                    <ul class="pathway-details">
+                                        <li>Realistic brief with constraints and timeline</li>
+                                        <li>AI asks clarifying questions, gives feedback</li>
+                                        <li>Simulates back-and-forth of real engagement</li>
+                                        <li>Full dimensional scoring on completion</li>
+                                    </ul>
+                                    <div class="pathway-outcome">
+                                        <span class="outcome-label">Outcome:</span>
+                                        <span class="verification-tag simulation">Simulation Completed</span>
+                                        <span class="outcome-note">+ detailed performance report</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Level Confirmation -->
+                    <div class="level-confirmation-section">
+                        <h4>Level Confirmation Process</h4>
+                        <div class="confirmation-timeline">
+                            <div class="timeline-phase">
+                                <div class="phase-marker provisional">P</div>
+                                <div class="phase-content">
+                                    <strong>Provisional (0-50 hours)</strong>
+                                    <p>Initial level from interview. Can be matched to projects but flagged as provisional to internal team.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-connector">
+                                <span class="connector-label">After 50 hours of real work</span>
+                            </div>
+                            <div class="timeline-phase">
+                                <div class="phase-marker review">R</div>
+                                <div class="phase-content">
+                                    <strong>Review Point</strong>
+                                    <p>Gratia reviews real project performance. Level may be confirmed, adjusted up, or adjusted down.</p>
+                                    <ul class="review-factors">
+                                        <li>First-submission scores across projects</li>
+                                        <li>Substantive revision rates (excludes minor polish)</li>
+                                        <li>Client and PM feedback</li>
+                                        <li>Comparison to interview assessment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-phase">
+                                <div class="phase-marker verified">V</div>
+                                <div class="phase-content">
+                                    <strong>Confirmed Level</strong>
+                                    <p>Level now backed by real project data. Ongoing AQS tracking continues.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Not Yet Assessed -->
+                    <div class="not-assessed-section">
+                        <h4>Handling "Not Yet Assessed" Areas</h4>
+                        <p>Some capabilities can't be assessed in interviews. These show as "Not Yet Assessed" until the analyst demonstrates them:</p>
+                        <div class="nya-examples">
+                            <div class="nya-item">
+                                <span class="nya-label">Specializations without hours</span>
+                                <span class="nya-status">NYA until first project or simulation</span>
+                            </div>
+                            <div class="nya-item">
+                                <span class="nya-label">Advanced deliverable types</span>
+                                <span class="nya-status">NYA until demonstrated in portfolio/simulation/project</span>
+                            </div>
+                            <div class="nya-item">
+                                <span class="nya-label">Client-facing communication</span>
+                                <span class="nya-status">NYA until real project with client interaction</span>
+                            </div>
+                        </div>
+                        <p class="nya-note">Analysts can use self-assessment pathways to move from "Not Yet Assessed" to at least "Simulation Completed" — making them matchable for real work.</p>
+                    </div>
+                </div>
+
+                <!-- AQS Calculator Panel -->
+                <div id="aqs-panel" class="assessment-panel">
+                    <div class="aqs-explainer">
+                        <h3>Analyst Quality Score (AQS)</h3>
+                        <p>Your AQS is a rolling 90-day performance metric combining AI-assessed and human-inputted data:</p>
+                        <div class="aqs-formula">
+                            <div class="formula-part accuracy">
+                                <span class="weight">35%</span>
+                                <span class="label">Work Quality</span>
+                                <span class="detail">First-submission score + substantive revision rate</span>
+                                <span class="source">AI-assessed</span>
+                            </div>
+                            <span class="plus">+</span>
+                            <div class="formula-part delivery">
+                                <span class="weight">20%</span>
+                                <span class="label">Delivery</span>
+                                <span class="detail">On-time rate (PM-reported)</span>
+                                <span class="source">PM input</span>
+                            </div>
+                            <span class="plus">+</span>
+                            <div class="formula-part professionalism">
+                                <span class="weight">25%</span>
+                                <span class="label">Satisfaction</span>
+                                <span class="detail">Client + PM + peer feedback</span>
+                                <span class="source">Human input</span>
+                            </div>
+                            <span class="plus">+</span>
+                            <div class="formula-part standards">
+                                <span class="weight">20%</span>
+                                <span class="label">Gratia Standards</span>
+                                <span class="detail">Time logging, updates, process</span>
+                                <span class="source">System data</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-layout">
+                        <div class="calc-inputs">
+                            <div class="calc-section">
+                                <div class="calc-section-header">
+                                    <h4>Work Quality (35%)</h4>
+                                    <span class="source-badge ai">AI-assessed</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>Avg First-Submission Score (1-5)</label>
+                                    <input type="range" id="firstSubmissionScore" min="1" max="5" step="0.1" value="3.5">
+                                    <span id="firstSubmissionScoreValue">3.5</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>No Substantive Revision Rate</label>
+                                    <input type="range" id="zeroRevisionRate" min="0" max="100" value="60">
+                                    <span id="zeroRevisionRateValue">60%</span>
+                                    <span class="input-hint">% of deliverables with no substantive issues</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>Avg Substantive Revisions</label>
+                                    <input type="range" id="avgRevisions" min="0" max="3" step="0.1" value="0.8">
+                                    <span id="avgRevisionsValue">0.8</span>
+                                    <span class="input-hint">Excludes minor polish (copy, formatting)</span>
+                                </div>
+                            </div>
+                            <div class="calc-section">
+                                <div class="calc-section-header">
+                                    <h4>Delivery (20%)</h4>
+                                    <span class="source-badge pm">PM input</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>On-Time Rate</label>
+                                    <input type="range" id="onTimeRate" min="0" max="100" value="90">
+                                    <span id="onTimeRateValue">90%</span>
+                                </div>
+                            </div>
+                            <div class="calc-section">
+                                <div class="calc-section-header">
+                                    <h4>Satisfaction (25%)</h4>
+                                    <span class="source-badge human">Human input</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>Client Rating (1-5)</label>
+                                    <input type="range" id="clientFeedback" min="1" max="5" step="0.1" value="4.2">
+                                    <span id="clientFeedbackValue">4.2</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>PM Rating (1-5)</label>
+                                    <input type="range" id="pmFeedback" min="1" max="5" step="0.1" value="4.0">
+                                    <span id="pmFeedbackValue">4.0</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>Peer Rating (1-5, optional)</label>
+                                    <input type="range" id="peerFeedback" min="1" max="5" step="0.1" value="4.0">
+                                    <span id="peerFeedbackValue">4.0</span>
+                                </div>
+                            </div>
+                            <div class="calc-section">
+                                <div class="calc-section-header">
+                                    <h4>Gratia Standards (20%)</h4>
+                                    <span class="source-badge system">System data</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>Time Logging Compliance</label>
+                                    <input type="range" id="timeLogging" min="0" max="100" value="95">
+                                    <span id="timeLoggingValue">95%</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>Daily Updates Sent</label>
+                                    <input type="range" id="dailyUpdates" min="0" max="100" value="90">
+                                    <span id="dailyUpdatesValue">90%</span>
+                                </div>
+                                <div class="calc-input">
+                                    <label>Process Adherence</label>
+                                    <input type="range" id="processAdherence" min="0" max="100" value="85">
+                                    <span id="processAdherenceValue">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calc-result">
+                            <div class="aqs-gauge">
+                                <svg viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="90" fill="none" stroke="#e5e7eb" stroke-width="12"/>
+                                    <circle id="aqsProgress" cx="100" cy="100" r="90" fill="none" stroke="var(--primary)" stroke-width="12"
+                                        stroke-dasharray="565.48" stroke-dashoffset="113" stroke-linecap="round"
+                                        transform="rotate(-90 100 100)"/>
+                                </svg>
+                                <div class="aqs-score-display">
+                                    <span class="aqs-number" id="aqsScore">84</span>
+                                    <span class="aqs-label">AQS</span>
+                                </div>
+                            </div>
+                            <div class="aqs-level-indicator">
+                                <span class="current-level" id="aqsLevelIndicator">A2 Level</span>
+                                <span class="level-range" id="aqsLevelRange">80-90 range</span>
+                            </div>
+                            <div class="aqs-breakdown">
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Quality</span>
+                                    <span class="breakdown-value" id="breakdownQualityValue">30</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Delivery</span>
+                                    <span class="breakdown-value" id="breakdownDeliveryValue">18</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Satisfaction</span>
+                                    <span class="breakdown-value" id="breakdownSatisfactionValue">21</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Standards</span>
+                                    <span class="breakdown-value" id="breakdownStandardsValue">17</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Review Panel -->
+                <div id="quality-panel" class="assessment-panel">
+                    <div class="quality-explainer">
+                        <h3>AI Quality Review</h3>
+                        <p>AI reviews every deliverable on 8 dimensions. The <strong>first-submission score</strong> (before any feedback) is what counts for AQS — this measures true independent capability. Only <strong>substantive issues</strong> (missing requirements, errors, methodology) count as revisions; minor polish (copy tightening, formatting) does not.</p>
+                    </div>
+
+                    <div class="review-workflow">
+                        <h4>Review Workflow</h4>
+                        <div class="workflow-diagram">
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <strong>Analyst Submits</strong>
+                                    <p>First draft of deliverable</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step highlight">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <strong>AI Scores</strong>
+                                    <p>First-submission score recorded</p>
+                                    <span class="step-badge">This feeds AQS</span>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <strong>AI Gives Feedback</strong>
+                                    <p>Detailed improvement notes</p>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <strong>Substantive Revision</strong>
+                                    <p>Real issues only (not minor polish)</p>
+                                    <span class="step-badge warn">Only substantive revisions count</span>
+                                </div>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <strong>Client Delivery</strong>
+                                    <p>When avg ≥ 3.5</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quality-layout">
+                        <div class="quality-dimensions-panel">
+                            <div class="dimension-selector">
+                                <label>Select Specialization to see dimensions</label>
+                                <select id="qualitySpecSelect" class="form-select">
+                                    <option value="financial">Financial Models</option>
+                                    <option value="pitch">Pitch Decks</option>
+                                    <option value="research">Market Research</option>
+                                    <option value="dashboards">Dashboards</option>
+                                    <option value="process">Process Optimization</option>
+                                    <option value="pm">Project Management</option>
+                                    <option value="proposals">Proposals</option>
+                                    <option value="revops">RevOps & GTM</option>
+                                    <option value="strategy">Business Strategy</option>
+                                </select>
+                            </div>
+
+                            <div class="dimensions-list">
+                                <h4>Universal Dimensions (all deliverables)</h4>
+                                <div class="dimension-group universal" id="universalDimensions">
+                                    <!-- Populated by JS -->
+                                </div>
+
+                                <h4>Specialization-Specific</h4>
+                                <div class="dimension-group specific" id="specificDimensions">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quality-feedback-panel">
+                            <div class="score-scale">
+                                <h4>Scoring Scale</h4>
+                                <div class="scale-items">
+                                    <div class="scale-item"><span class="score score-1">1</span> Unacceptable — Major issues, restart</div>
+                                    <div class="scale-item"><span class="score score-2">2</span> Below Standard — Significant gaps</div>
+                                    <div class="scale-item"><span class="score score-3">3</span> Meets Standard — Acceptable</div>
+                                    <div class="scale-item"><span class="score score-4">4</span> Above Standard — Good quality</div>
+                                    <div class="scale-item"><span class="score score-5">5</span> Exceptional — Reference quality</div>
+                                </div>
+                            </div>
+
+                            <div class="review-outcomes">
+                                <h4>First-Submission Outcomes</h4>
+                                <div class="outcome-items">
+                                    <div class="outcome exceeded"><span class="outcome-badge">Excellent</span> Avg 4.5+ — No substantive issues</div>
+                                    <div class="outcome passed"><span class="outcome-badge">Good</span> Avg 3.5-4.5 — Minor polish only (doesn't count as revision)</div>
+                                    <div class="outcome revise"><span class="outcome-badge">Needs Work</span> Avg 2.5-3.5 — Substantive revision required</div>
+                                    <div class="outcome restart"><span class="outcome-badge">Restart</span> Avg &lt;2.5 — Fundamental issues</div>
+                                </div>
+                            </div>
+
+                            <div class="pattern-tracking">
+                                <h4>Pattern Tracking</h4>
+                                <p>AI aggregates dimension scores over time. When patterns emerge:</p>
+                                <div class="pattern-example">
+                                    <div class="pattern-alert">
+                                        <span class="alert-icon">⚠️</span>
+                                        <div class="alert-content">
+                                            <strong>Low scores on "Sample Validity"</strong>
+                                            <p>3 of last 5 research deliverables scored &lt;3 on this dimension</p>
+                                            <a href="#" class="alert-action">View upskilling resources →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulator Panel -->
+                <div id="simulator-panel" class="assessment-panel">
+                    <div class="simulator-layout">
+                        <div class="sim-profile-panel">
+                            <h3>Analyst Profile</h3>
+                            <div class="sim-profile-form">
+                                <div class="sim-avatar" id="simAvatar">JD</div>
+                                <div class="sim-fields">
+                                    <div class="form-row">
+                                        <label>Name</label>
+                                        <input type="text" id="simName" value="Jane Doe" class="form-input">
+                                    </div>
+                                    <div class="form-row">
+                                        <label>Current Level</label>
+                                        <select id="simLevel" class="form-select">
+                                            <option value="A1">A1 - Apprentice Business Analyst</option>
+                                            <option value="A2" selected>A2 - Associate Business Analyst</option>
+                                            <option value="A3">A3 - Business Analyst</option>
+                                            <option value="A4">A4 - Senior Business Analyst</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sim-hours">
+                                <h4>Specialization Hours</h4>
+                                <div class="hours-inputs" id="simHoursInputs">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sim-projects-panel">
+                            <div class="panel-header">
+                                <h3>Recent Projects</h3>
+                                <button class="btn-secondary btn-small" id="randomizeProjects">Randomize</button>
+                            </div>
+                            <div class="sim-project-list" id="simProjectList">
+                                <!-- Populated by JS -->
+                            </div>
+                            <div class="project-summary">
+                                <div class="summary-stat">
+                                    <span class="stat-value" id="simAvgReview">3.8</span>
+                                    <span class="stat-label">Avg Review</span>
+                                </div>
+                                <div class="summary-stat">
+                                    <span class="stat-value" id="simPassRate">75%</span>
+                                    <span class="stat-label">Pass Rate</span>
+                                </div>
+                                <div class="summary-stat">
+                                    <span class="stat-value" id="simOnTimeRate">88%</span>
+                                    <span class="stat-label">On-Time</span>
+                                </div>
+                                <div class="summary-stat">
+                                    <span class="stat-value" id="simAvgRating">4.2</span>
+                                    <span class="stat-label">Client</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sim-results-panel">
+                            <h3>Evaluation</h3>
+                            <div class="sim-result-card">
+                                <span class="result-label">Calculated AQS</span>
+                                <span class="result-value" id="simAQS">84</span>
+                            </div>
+                            <div class="sim-result-card">
+                                <span class="result-label">Performance Level</span>
+                                <span class="result-value" id="simPerfLevel">A2</span>
+                            </div>
+                            <div class="promo-section">
+                                <h4>Progress to <span id="simNextLevel">A3</span></h4>
+                                <div class="promo-bar">
+                                    <div class="promo-fill" id="simPromoFill" style="width: 65%"></div>
+                                </div>
+                                <div class="promo-requirements" id="simPromoReqs">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                            <button class="btn-primary" id="runSimulation">Run Evaluation</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STAFFING VIEW -->
+            <section id="staffing-view" class="view">
+                <div class="view-header">
+                    <h1>Staffing</h1>
+                    <p>Find the right analyst for your project based on level and specialization.</p>
+                </div>
+
+                <div class="staffing-layout">
+                    <div class="staffing-filters">
+                        <h3>Project Requirements</h3>
+                        <div class="filter-group">
+                            <label>Specialization</label>
+                            <select id="staffing-spec" class="form-select">
+                                <option value="financial">Financial Models</option>
+                                <option value="pitch">Pitch Decks</option>
+                                <option value="research">Market Research</option>
+                                <option value="dashboards">Dashboards</option>
+                                <option value="process">Process Optimization</option>
+                                <option value="pm">Project Management</option>
+                                <option value="proposals">Proposals</option>
+                                <option value="revops">RevOps & GTM</option>
+                                <option value="strategy">Business Strategy</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Minimum Spec Tier</label>
+                            <select id="staffing-tier" class="form-select">
+                                <option value="familiar">Familiar (SS 50+)</option>
+                                <option value="proficient" selected>Proficient (SS 70+)</option>
+                                <option value="expert">Expert (SS 85+)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Minimum Level</label>
+                            <select id="staffing-level" class="form-select">
+                                <option value="A1">A1 - Apprentice</option>
+                                <option value="A2" selected>A2 - Associate</option>
+                                <option value="A3">A3 - Business Analyst</option>
+                                <option value="A4">A4 - Senior</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Client Work Style <span class="optional-label">(optional)</span></label>
+                            <select id="staffing-client-profile" class="form-select">
+                                <option value="">— Don't filter by style —</option>
+                                <option value="startup">Startup / Fast-paced</option>
+                                <option value="enterprise">Enterprise / Process-driven</option>
+                                <option value="consulting">Consulting firm</option>
+                                <option value="creative">Creative / Agency</option>
+                            </select>
+                            <span class="filter-hint">From Principles Us assessment</span>
+                        </div>
+                        <button class="btn-primary" id="findAnalysts">Find Matches</button>
+                    </div>
+
+                    <div class="staffing-results">
+                        <h3>Matching Analysts</h3>
+                        <div id="staffingResults" class="analyst-results">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
